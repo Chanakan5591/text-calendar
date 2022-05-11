@@ -1,4 +1,4 @@
-use notify_rust::Notification;
+use notify_rust::{Notification};
 use std::fs;
 use dirs::home_dir;
 use chrono::{Local, NaiveDate, Datelike, offset::TimeZone};
@@ -22,6 +22,8 @@ fn main() {
             Notification::new()
             .summary("Today's event")
             .body(&"Today is {}'s birthday! Tell them HBD.".replace("{}", name))
+            .appname("Birthday Reminder")
+            .timeout(0)
             .show();
         }
 
